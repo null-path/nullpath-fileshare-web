@@ -1,0 +1,199 @@
+:root {
+  --background-dark: #121212;
+  --text-light: #e0e0e0;
+  --accent-glow: #b8b8b8;
+  --border-color: #333;
+  --error-red: #ff4a4a;
+  --success-green: #4aff4a;
+  --pixel-size: 2px;
+
+  --font-mono: 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: var(--font-mono);
+  background-color: var(--background-dark);
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-pixel, var(--font-mono));
+  color: var(--accent-glow);
+  text-shadow:
+    0 0 3px rgba(184, 184, 184, 0.6),
+    0 0 6px rgba(184, 184, 184, 0.4),
+    0 0 9px rgba(184, 184, 184, 0.2);
+  margin-bottom: 0.5em;
+  text-align: center;
+}
+
+p, a, span, label, input, button, textarea {
+  font-family: var(--font-mono);
+}
+
+a {
+  color: var(--accent-glow);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--accent-glow);
+  transition: all 0.2s ease-in-out;
+}
+
+a:hover {
+  text-shadow: 0 0 3px rgba(184, 184, 184, 0.5);
+  border-bottom-color: transparent;
+}
+
+.app-container {
+  background-color: #1a1a1a;
+  border: 1px solid var(--border-color);
+  box-shadow:
+    0 0 8px rgba(184, 184, 184, 0.15),
+    inset 0 0 5px rgba(184, 184, 184, 0.03);
+  border-radius: 4px;
+  padding: 40px;
+  max-width: 600px;
+  width: 100%;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+input[type="file"],
+input[type="text"],
+textarea,
+button {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid var(--border-color);
+  background-color: #2a2a2a;
+  color: var(--text-light);
+  border-radius: 3px;
+  box-sizing: border-box;
+  font-size: 1em;
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+input[type="text"]:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+  border-color: var(--accent-glow);
+  box-shadow: 0 0 6px rgba(184, 184, 184, 0.3);
+}
+
+button {
+  background-color: var(--accent-glow);
+  color: var(--background-dark);
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+}
+
+button:hover {
+  background-color: rgba(184, 184, 184, 0.9);
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+button:disabled {
+  background-color: #555;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.message {
+  padding: 10px 15px;
+  margin-bottom: 20px;
+  border-radius: 3px;
+  font-size: 0.95em;
+  text-align: left;
+}
+
+.message.error {
+  background-color: rgba(255, 74, 74, 0.15);
+  color: var(--error-red);
+  border: 1px solid var(--error-red);
+}
+
+.message.success {
+  background-color: rgba(74, 255, 74, 0.15);
+  color: var(--success-green);
+  border: 1px solid var(--success-green);
+}
+
+.drop-area {
+  border: 2px dashed var(--border-color);
+  border-radius: 5px;
+  padding: 30px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+.drop-area.drag-over {
+  background-color: rgba(184, 184, 184, 0.08);
+  border-color: var(--accent-glow);
+}
+
+.drop-area p {
+  margin: 0;
+  font-size: 1.1em;
+}
+
+.drop-area span {
+  display: block;
+  font-size: 0.85em;
+  color: #aaa;
+  margin-top: 5px;
+}
+
+.link-display {
+  background-color: #222;
+  border: 1px solid #444;
+  padding: 15px;
+  margin-top: 25px;
+  word-break: break-all;
+  text-align: left;
+  font-size: 0.9em;
+}
+
+.link-display label {
+  display: block;
+  margin-bottom: 8px;
+  color: #aaa;
+  font-size: 0.8em;
+  text-transform: uppercase;
+}
+
+.link-display p {
+  margin: 0;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .app-container {
+    padding: 20px;
+  }
+}
